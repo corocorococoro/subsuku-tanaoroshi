@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- 背景円（オーラ） -->
+  <circle cx="50" cy="50" r="48" fill="url(#aura)"/>
+
+  <!-- 体 -->
+  <ellipse cx="50" cy="70" rx="25" ry="20" fill="#FFE4EC"/>
+
+  <!-- 顔 -->
+  <circle cx="50" cy="42" r="28" fill="#FFE4EC"/>
+
+  <!-- 耳（ネコ耳風） -->
+  <path d="M25 25 L30 42 L38 30 Z" fill="#FFE4EC" stroke="#FFAAC4" stroke-width="2"/>
+  <path d="M75 25 L70 42 L62 30 Z" fill="#FFE4EC" stroke="#FFAAC4" stroke-width="2"/>
+  <path d="M28 28 L32 38 L36 32 Z" fill="#FFAAC4"/>
+  <path d="M72 28 L68 38 L64 32 Z" fill="#FFAAC4"/>
+
+  <!-- 目 -->
+  <ellipse cx="38" cy="42" rx="6" ry="7" fill="#2D1B4E"/>
+  <ellipse cx="62" cy="42" rx="6" ry="7" fill="#2D1B4E"/>
+  <!-- 目のハイライト -->
+  <circle cx="40" cy="40" r="2" fill="white"/>
+  <circle cx="64" cy="40" r="2" fill="white"/>
+
+  <!-- 眉（ちょっとジト目風） -->
+  <path d="M32 34 Q38 32 44 35" stroke="#2D1B4E" stroke-width="1.5" fill="none"/>
+  <path d="M56 35 Q62 32 68 34" stroke="#2D1B4E" stroke-width="1.5" fill="none"/>
+
+  <!-- 口（ニヤッと） -->
+  <path d="M42 54 Q50 60 58 54" stroke="#E84A7A" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- 頬 -->
+  <ellipse cx="30" cy="50" rx="5" ry="3" fill="#FFAAC4" opacity="0.6"/>
+  <ellipse cx="70" cy="50" rx="5" ry="3" fill="#FFAAC4" opacity="0.6"/>
+
+  <!-- 星のアクセサリー -->
+  <path d="M50 15 L52 21 L58 21 L53 25 L55 31 L50 27 L45 31 L47 25 L42 21 L48 21 Z" fill="#FFD700"/>
+
+  <!-- キラキラ -->
+  <circle cx="18" cy="20" r="2" fill="#FFD700" opacity="0.8"/>
+  <circle cx="82" cy="25" r="1.5" fill="#FFD700" opacity="0.8"/>
+  <circle cx="85" cy="60" r="2" fill="#FFD700" opacity="0.6"/>
+
+  <defs>
+    <radialGradient id="aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF0F5"/>
+      <stop offset="100%" stop-color="#FFE4EC"/>
+    </radialGradient>
+  </defs>
+</svg>
