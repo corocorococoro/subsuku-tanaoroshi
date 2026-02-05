@@ -6,7 +6,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { CategorySummary, Subscription } from '@/types';
 import { Head, router, useForm } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, memo, useCallback, useMemo, useState } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
 interface Props {
@@ -59,7 +59,7 @@ function formatDate(dateString: string): string {
 }
 
 // サブスクリスト行
-function SubscriptionRow({
+const SubscriptionRow = memo(function SubscriptionRow({
     subscription,
     onEdit,
     onDelete,
@@ -92,8 +92,8 @@ function SubscriptionRow({
                     <div className="flex items-center gap-2">
                         <span
                             className={`truncate text-[15px] font-medium ${isCanceled
-                                    ? 'text-stone-400 line-through'
-                                    : 'text-stone-800'
+                                ? 'text-stone-400 line-through'
+                                : 'text-stone-800'
                                 }`}
                         >
                             {subscription.name}
@@ -162,6 +162,21 @@ function SubscriptionRow({
             )}
         </motion.div>
     );
+});
+
+// SubscriptionRow wrapper - useCallbackで安定したcallbackを提供: rerender-functional-setstate
+function SubscriptionRowWrapper({
+    subscription,
+    setEditingSubscription,
+    setDeletingSubscription,
+}: {
+    subscription: Subscription;
+    setEditingSubscription: React.Dispatch<React.SetStateAction<Subscription | null>>;
+    setDeletingSubscription: React.Dispatch<React.SetStateAction<Subscription | null>>;
+}) {
+    const onEdit = useCallback(() => setEditingSubscription(subscription), [subscription, setEditingSubscription]);
+    const onDelete = useCallback(() => setDeletingSubscription(subscription), [subscription, setDeletingSubscription]);
+    return <SubscriptionRow subscription={subscription} onEdit={onEdit} onDelete={onDelete} />;
 }
 
 // フォーム
@@ -276,8 +291,8 @@ function SubscriptionForm({
                                     type="button"
                                     onClick={() => setData('category', cat)}
                                     className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${isSelected
-                                            ? 'text-white'
-                                            : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                                        ? 'text-white'
+                                        : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
                                         }`}
                                     style={isSelected ? { backgroundColor: color } : {}}
                                 >
@@ -324,8 +339,8 @@ function SubscriptionForm({
                                 type="button"
                                 onClick={() => setData('status', 'active')}
                                 className={`flex-1 rounded-lg border py-2 text-xs font-medium transition-all ${data.status === 'active'
-                                        ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
-                                        : 'border-stone-200 text-stone-500 hover:border-stone-300'
+                                    ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
+                                    : 'border-stone-200 text-stone-500 hover:border-stone-300'
                                     }`}
                             >
                                 契約中
@@ -334,8 +349,8 @@ function SubscriptionForm({
                                 type="button"
                                 onClick={() => setData('status', 'canceled')}
                                 className={`flex-1 rounded-lg border py-2 text-xs font-medium transition-all ${data.status === 'canceled'
-                                        ? 'border-stone-500 bg-stone-100 text-stone-700'
-                                        : 'border-stone-200 text-stone-500 hover:border-stone-300'
+                                    ? 'border-stone-500 bg-stone-100 text-stone-700'
+                                    : 'border-stone-200 text-stone-500 hover:border-stone-300'
                                     }`}
                             >
                                 解約済
@@ -435,14 +450,26 @@ export default function Dashboard({
     const [editingSubscription, setEditingSubscription] = useState<Subscription | null>(null);
     const [deletingSubscription, setDeletingSubscription] = useState<Subscription | null>(null);
 
-    const filteredSubscriptions = subscriptions.filter((s) => s.status === filter);
-    const activeCount = subscriptions.filter((s) => s.status === 'active').length;
-    const canceledCount = subscriptions.filter((s) => s.status === 'canceled').length;
+    // 配列イテレーションの統合: js-combine-iterations
+    const { filteredSubscriptions, activeCount, canceledCount } = useMemo(() => {
+        let active = 0;
+        let canceled = 0;
+        const filtered: Subscription[] = [];
+        for (const s of subscriptions) {
+            if (s.status === 'active') active++;
+            else if (s.status === 'canceled') canceled++;
+            if (s.status === filter) filtered.push(s);
+        }
+        return { filteredSubscriptions: filtered, activeCount: active, canceledCount: canceled };
+    }, [subscriptions, filter]);
 
-    const chartData = subscriptionsByCategory.map((cat) => ({
-        ...cat,
-        fill: CATEGORY_COLORS[cat.category] || '#64748b',
-    }));
+    // chartDataのメモ化: rerender-memo
+    const chartData = useMemo(() =>
+        subscriptionsByCategory.map((cat) => ({
+            ...cat,
+            fill: CATEGORY_COLORS[cat.category] || '#64748b',
+        })),
+        [subscriptionsByCategory]);
 
     return (
         <AuthenticatedLayout>
@@ -554,8 +581,8 @@ export default function Dashboard({
                             <button
                                 onClick={() => setFilter('active')}
                                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${filter === 'active'
-                                        ? 'bg-white text-stone-900 shadow-sm'
-                                        : 'text-stone-500 hover:text-stone-700'
+                                    ? 'bg-white text-stone-900 shadow-sm'
+                                    : 'text-stone-500 hover:text-stone-700'
                                     }`}
                             >
                                 契約中 {activeCount > 0 && `(${activeCount})`}
@@ -563,8 +590,8 @@ export default function Dashboard({
                             <button
                                 onClick={() => setFilter('canceled')}
                                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${filter === 'canceled'
-                                        ? 'bg-white text-stone-900 shadow-sm'
-                                        : 'text-stone-500 hover:text-stone-700'
+                                    ? 'bg-white text-stone-900 shadow-sm'
+                                    : 'text-stone-500 hover:text-stone-700'
                                     }`}
                             >
                                 解約済 {canceledCount > 0 && `(${canceledCount})`}
@@ -588,11 +615,11 @@ export default function Dashboard({
                             {filteredSubscriptions.length > 0 ? (
                                 <div className="divide-y divide-stone-100 px-4">
                                     {filteredSubscriptions.map((sub) => (
-                                        <SubscriptionRow
+                                        <SubscriptionRowWrapper
                                             key={sub.id}
                                             subscription={sub}
-                                            onEdit={() => setEditingSubscription(sub)}
-                                            onDelete={() => setDeletingSubscription(sub)}
+                                            setEditingSubscription={setEditingSubscription}
+                                            setDeletingSubscription={setDeletingSubscription}
                                         />
                                     ))}
                                 </div>
