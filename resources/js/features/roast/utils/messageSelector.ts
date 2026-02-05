@@ -107,6 +107,16 @@ export function selectGlobalMessage(
 ): { message: GlobalMessage; formatted: string } | null {
     // 金額帯でフィルタ
     const eligible = globalMessages.filter((m) => {
+        // 0円（サブスク未登録/全解約）の場合、0円専用メッセージ(maxMonthly: 0)のみを表示
+        if (monthlyTotal === 0) {
+            return m.maxMonthly === 0;
+        }
+
+        // 通常時は0円専用メッセージを表示しない
+        if (m.maxMonthly === 0) {
+            return false;
+        }
+
         if (m.minMonthly !== undefined && monthlyTotal < m.minMonthly)
             return false;
         if (m.maxMonthly !== undefined && monthlyTotal > m.maxMonthly)
