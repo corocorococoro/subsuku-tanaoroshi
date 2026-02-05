@@ -4,6 +4,7 @@ import { SubscriptionRoast } from '@/features/roast/components/SubscriptionRoast
 import type { SubscriptionCategory } from '@/features/roast/types';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { CategorySummary, Subscription } from '@/types';
+import { formatDateForInput } from '@/utils/date';
 import { Head, router, useForm } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FormEventHandler, memo, useCallback, useMemo, useState } from 'react';
@@ -58,7 +59,6 @@ function formatDate(dateString: string): string {
     return `${month}/${day}`;
 }
 
-// サブスクリスト行
 const SubscriptionRow = memo(function SubscriptionRow({
     subscription,
     onEdit,
@@ -197,8 +197,8 @@ function SubscriptionForm({
         name: subscription?.name || '',
         amount_yen: subscription?.amount_yen?.toString() || '',
         interval_months: subscription?.interval_months?.toString() || '1',
-        started_on: subscription?.started_on || '',
-        next_billing_on: subscription?.next_billing_on || '',
+        started_on: formatDateForInput(subscription?.started_on),
+        next_billing_on: formatDateForInput(subscription?.next_billing_on),
         category: subscription?.category || categories[0],
         memo: subscription?.memo || '',
         status: subscription?.status || 'active',

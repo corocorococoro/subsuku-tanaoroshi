@@ -13,6 +13,9 @@ interface Props {
     intervalMonths: number[];
 }
 
+import { formatDateForInput } from '@/utils/date';
+
+
 const intervalLabels: Record<number, string> = {
     1: '毎月',
     2: '2ヶ月ごと',
@@ -31,8 +34,8 @@ export default function Edit({
         name: subscription.name,
         amount_yen: String(subscription.amount_yen),
         interval_months: String(subscription.interval_months),
-        started_on: subscription.started_on.split('T')[0],
-        next_billing_on: subscription.next_billing_on.split('T')[0],
+        started_on: formatDateForInput(subscription.started_on),
+        next_billing_on: formatDateForInput(subscription.next_billing_on),
         category: subscription.category,
         memo: subscription.memo || '',
         status: subscription.status,
@@ -183,11 +186,10 @@ export default function Edit({
                                             e.target.value as 'active' | 'canceled',
                                         )
                                     }
-                                    className={`mt-1.5 w-full rounded-lg border-slate-300 bg-white transition-colors duration-200 focus:border-primary-500 focus:ring-primary-500 ${
-                                        data.status === 'canceled'
-                                            ? 'text-slate-500'
-                                            : 'text-slate-900'
-                                    }`}
+                                    className={`mt-1.5 w-full rounded-lg border-slate-300 bg-white transition-colors duration-200 focus:border-primary-500 focus:ring-primary-500 ${data.status === 'canceled'
+                                        ? 'text-slate-500'
+                                        : 'text-slate-900'
+                                        }`}
                                     required
                                 >
                                     <option value="active">契約中</option>
