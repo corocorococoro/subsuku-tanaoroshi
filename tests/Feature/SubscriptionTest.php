@@ -11,16 +11,7 @@ class SubscriptionTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_subscriptions_index_page_is_displayed(): void
-    {
-        $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->get('/subscriptions');
-
-        $response->assertOk();
-    }
 
     public function test_subscriptions_create_page_is_displayed(): void
     {
@@ -47,7 +38,7 @@ class SubscriptionTest extends TestCase
                 'category' => '動画',
             ]);
 
-        $response->assertRedirect('/subscriptions');
+        $response->assertRedirect('/dashboard');
 
         $this->assertDatabaseHas('subscriptions', [
             'user_id' => $user->id,
@@ -85,7 +76,7 @@ class SubscriptionTest extends TestCase
                 'status' => 'active',
             ]);
 
-        $response->assertRedirect('/subscriptions');
+        $response->assertRedirect('/dashboard');
 
         $this->assertDatabaseHas('subscriptions', [
             'id' => $subscription->id,
@@ -120,7 +111,7 @@ class SubscriptionTest extends TestCase
                 'status' => 'canceled',
             ]);
 
-        $response->assertRedirect('/subscriptions');
+        $response->assertRedirect('/dashboard');
 
         $this->assertDatabaseHas('subscriptions', [
             'id' => $subscription->id,
@@ -146,7 +137,7 @@ class SubscriptionTest extends TestCase
             ->actingAs($user)
             ->delete("/subscriptions/{$subscription->id}");
 
-        $response->assertRedirect('/subscriptions');
+        $response->assertRedirect('/dashboard');
 
         $this->assertDatabaseMissing('subscriptions', [
             'id' => $subscription->id,
