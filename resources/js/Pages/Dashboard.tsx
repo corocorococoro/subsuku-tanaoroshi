@@ -28,6 +28,12 @@ const CATEGORY_COLORS: Record<string, string> = {
     ゲーム: '#9333ea', // 紫
     'クラウド/IT': '#0369a1', // 青
     生活: '#4d7c0f', // 草
+    '恋愛/マッチング': '#be185d', // ピンク
+    'フィットネス/健康': '#15803d', // 緑
+    'ニュース/情報': '#334155', // グレー
+    '推し活/ファンクラブ': '#f472b6', // ライトピンク
+    '飲食/グルメ': '#f97316', // オレンジ
+    ショッピング: '#eab308', // 黄色
     その他: '#64748b', // 鼠
 };
 
@@ -71,9 +77,8 @@ function SubscriptionRow({
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
-            className={`group border-b border-stone-100 py-4 last:border-b-0 ${
-                isCanceled ? 'opacity-50' : ''
-            }`}
+            className={`group border-b border-stone-100 py-4 last:border-b-0 ${isCanceled ? 'opacity-50' : ''
+                }`}
         >
             <div className="flex items-center gap-4">
                 {/* カテゴリドット */}
@@ -86,11 +91,10 @@ function SubscriptionRow({
                 <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
                         <span
-                            className={`truncate text-[15px] font-medium ${
-                                isCanceled
+                            className={`truncate text-[15px] font-medium ${isCanceled
                                     ? 'text-stone-400 line-through'
                                     : 'text-stone-800'
-                            }`}
+                                }`}
                         >
                             {subscription.name}
                         </span>
@@ -112,9 +116,8 @@ function SubscriptionRow({
                 {/* 金額 */}
                 <div className="text-right">
                     <span
-                        className={`text-[15px] font-semibold tabular-nums ${
-                            isCanceled ? 'text-stone-400' : 'text-stone-800'
-                        }`}
+                        className={`text-[15px] font-semibold tabular-nums ${isCanceled ? 'text-stone-400' : 'text-stone-800'
+                            }`}
                     >
                         {formatYen(subscription.amount_yen)}
                     </span>
@@ -272,11 +275,10 @@ function SubscriptionForm({
                                     key={cat}
                                     type="button"
                                     onClick={() => setData('category', cat)}
-                                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
-                                        isSelected
+                                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${isSelected
                                             ? 'text-white'
                                             : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
-                                    }`}
+                                        }`}
                                     style={isSelected ? { backgroundColor: color } : {}}
                                 >
                                     {cat}
@@ -321,22 +323,20 @@ function SubscriptionForm({
                             <button
                                 type="button"
                                 onClick={() => setData('status', 'active')}
-                                className={`flex-1 rounded-lg border py-2 text-xs font-medium transition-all ${
-                                    data.status === 'active'
+                                className={`flex-1 rounded-lg border py-2 text-xs font-medium transition-all ${data.status === 'active'
                                         ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
                                         : 'border-stone-200 text-stone-500 hover:border-stone-300'
-                                }`}
+                                    }`}
                             >
                                 契約中
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setData('status', 'canceled')}
-                                className={`flex-1 rounded-lg border py-2 text-xs font-medium transition-all ${
-                                    data.status === 'canceled'
+                                className={`flex-1 rounded-lg border py-2 text-xs font-medium transition-all ${data.status === 'canceled'
                                         ? 'border-stone-500 bg-stone-100 text-stone-700'
                                         : 'border-stone-200 text-stone-500 hover:border-stone-300'
-                                }`}
+                                    }`}
                             >
                                 解約済
                             </button>
@@ -553,21 +553,19 @@ export default function Dashboard({
                         <div className="flex items-center gap-1 rounded-lg bg-stone-100 p-0.5">
                             <button
                                 onClick={() => setFilter('active')}
-                                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
-                                    filter === 'active'
+                                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${filter === 'active'
                                         ? 'bg-white text-stone-900 shadow-sm'
                                         : 'text-stone-500 hover:text-stone-700'
-                                }`}
+                                    }`}
                             >
                                 契約中 {activeCount > 0 && `(${activeCount})`}
                             </button>
                             <button
                                 onClick={() => setFilter('canceled')}
-                                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
-                                    filter === 'canceled'
+                                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${filter === 'canceled'
                                         ? 'bg-white text-stone-900 shadow-sm'
                                         : 'text-stone-500 hover:text-stone-700'
-                                }`}
+                                    }`}
                             >
                                 解約済 {canceledCount > 0 && `(${canceledCount})`}
                             </button>

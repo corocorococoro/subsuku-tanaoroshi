@@ -4,9 +4,6 @@ trigger: always_on
 
 # Project Map — Subscriptions Spend Visualizer
 
-このファイルは「どのドキュメントが何の正か」を示す地図だけを持つ。
-ルール・手順・仕様の本文は各 INDEX にのみ存在する。
-
 ## Read order (Source of Truth)
 1) docs/product/INDEX.md
 - 何を作るか：ユースケース、画面/フロー、受け入れ条件、スコープ/非スコープ

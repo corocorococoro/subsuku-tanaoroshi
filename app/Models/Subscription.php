@@ -16,6 +16,12 @@ class Subscription extends Model
         'ゲーム',
         'クラウド/IT',
         '生活',
+        '恋愛/マッチング',
+        'フィットネス/健康',
+        'ニュース/情報',
+        '推し活/ファンクラブ',
+        '飲食/グルメ',
+        'ショッピング',
         'その他',
     ];
 
@@ -53,7 +59,7 @@ class Subscription extends Model
     protected function monthlyEquivYen(): Attribute
     {
         return Attribute::make(
-            get: fn () => (int) round($this->amount_yen / $this->interval_months),
+            get: fn() => (int) round($this->amount_yen / $this->interval_months),
         );
     }
 
@@ -64,7 +70,7 @@ class Subscription extends Model
     protected function yearlyEquivYen(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->amount_yen * (12 / $this->interval_months),
+            get: fn() => $this->amount_yen * (12 / $this->interval_months),
         );
     }
 
@@ -82,7 +88,7 @@ class Subscription extends Model
                 $now = now();
 
                 // 開始日から現在までの月数を計算
-                $months = $start->diffInMonths($now);
+                $months = (int) $start->diffInMonths($now);
 
                 // 最低1ヶ月（開始月は含む）
                 return max(1, $months + 1);

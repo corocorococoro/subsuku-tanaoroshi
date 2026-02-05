@@ -1,255 +1,644 @@
 [
-  {
-    "id": "s001",
-    "template": "月{amount}円、毎月自動で消えてくよ",
-    "priority": "medium"
-  },
-  {
-    "id": "s002",
-    "template": "毎日約{dailyAmount}円。今日使った?",
-    "priority": "medium"
-  },
-  {
-    "id": "s003",
-    "template": "年間{yearlyAmount}円のお布施、ありがとう",
-    "priority": "medium"
-  },
-  {
-    "id": "s004",
-    "template": "{amount}円、毎月無造作に消えてくね",
-    "priority": "low"
-  },
-  {
-    "id": "s005",
-    "template": "この{amount}円、他のことに使えたのに",
-    "priority": "medium"
-  },
-  {
-    "id": "s010",
-    "template": "「解約しよう」って何ヶ月前から思ってる?",
-    "priority": "medium"
-  },
-  {
-    "id": "s011",
-    "template": "毎月自動更新。気づいたら1年経ってるよ",
-    "priority": "low"
-  },
-  {
-    "id": "s012",
-    "template": "「試しに」登録して、まだ「試し中」?",
-    "priority": "medium"
-  },
-  {
-    "id": "s013",
-    "template": "解約ボタン、どこにあるか覚えてる?",
-    "priority": "medium"
-  },
-  {
-    "id": "s020",
-    "template": "最後にログインしたの、いつ?",
-    "priority": "high"
-  },
-  {
-    "id": "s021",
-    "template": "今日も使わなかったね。明日は?",
-    "priority": "medium"
-  },
-  {
-    "id": "s022",
-    "template": "払ってるだけで満足してない?",
-    "priority": "high"
-  },
-  {
-    "id": "s023",
-    "template": "元とれてる?正直に答えてみ",
-    "priority": "high"
-  },
-  {
-    "id": "s024",
-    "template": "お金払ってるのに使わないの、もったいなくない?",
-    "priority": "medium"
-  },
-  {
-    "id": "s030",
-    "template": "また動画サブスク...何個入ってるの?",
-    "categories": ["動画"],
-    "priority": "medium"
-  },
-  {
-    "id": "s031",
-    "template": "見てる時間ある?",
-    "categories": ["動画"],
-    "priority": "high"
-  },
-  {
-    "id": "s032",
-    "template": "ウォッチリストに追加して放置してない?",
-    "categories": ["動画"],
-    "priority": "medium"
-  },
-  {
-    "id": "s033",
-    "template": "今月何本見た?正直に",
-    "categories": ["動画"],
-    "priority": "medium"
-  },
-  {
-    "id": "s040",
-    "template": "音楽に月{amount}円...本当に聴いてる?",
-    "categories": ["音楽"],
-    "priority": "medium"
-  },
-  {
-    "id": "s041",
-    "template": "YouTubeでも聴けるのにね",
-    "categories": ["音楽"],
-    "priority": "low"
-  },
-  {
-    "id": "s042",
-    "template": "同じ曲ばっかりリピートしてない?",
-    "categories": ["音楽"],
-    "priority": "low"
-  },
-  {
-    "id": "s050",
-    "template": "仕事用ツール...元取れてる?",
-    "categories": ["仕事"],
-    "priority": "medium"
-  },
-  {
-    "id": "s051",
-    "template": "無料版で十分だったりしない?",
-    "categories": ["仕事"],
-    "priority": "medium"
-  },
-  {
-    "id": "s052",
-    "template": "「仕事に必要」って言い訳にしてない?",
-    "categories": ["仕事"],
-    "priority": "high"
-  },
-  {
-    "id": "s060",
-    "template": "学習系サブスク...で、勉強してる?",
-    "categories": ["学習"],
-    "priority": "high"
-  },
-  {
-    "id": "s061",
-    "template": "「いつか学ぶ」の「いつか」、いつ?",
-    "categories": ["学習"],
-    "priority": "high"
-  },
-  {
-    "id": "s062",
-    "template": "積ん読ならぬ積みコースになってない?",
-    "categories": ["学習"],
-    "priority": "medium"
-  },
-  {
-    "id": "s070",
-    "template": "ゲームに{amount}円/月...積みゲー増えてない?",
-    "categories": ["ゲーム"],
-    "priority": "medium"
-  },
-  {
-    "id": "s071",
-    "template": "今月何時間プレイした?",
-    "categories": ["ゲーム"],
-    "priority": "medium"
-  },
-  {
-    "id": "s080",
-    "template": "クラウドストレージ、何GB使ってる?",
-    "categories": ["クラウド/IT"],
-    "priority": "medium"
-  },
-  {
-    "id": "s081",
-    "template": "無料プランで足りなかった?本当に?",
-    "categories": ["クラウド/IT"],
-    "priority": "medium"
-  },
-  {
-    "id": "s090",
-    "template": "「生活に必要」...本当に?",
-    "categories": ["生活"],
-    "priority": "medium"
-  },
-  {
-    "id": "s091",
-    "template": "なくても生きていけるんじゃない?",
-    "categories": ["生活"],
-    "priority": "high"
-  },
-  {
-    "id": "s100",
-    "template": "{name}に月{amount}円...これ本当に必要?",
-    "minMonthly": 2000,
-    "priority": "high"
-  },
-  {
-    "id": "s101",
-    "template": "年間{yearlyAmount}円のサービス、使いこなせてる?",
-    "minMonthly": 3000,
-    "priority": "high"
-  },
-  {
-    "id": "s102",
-    "template": "{amount}円/月って、結構な金額だよ",
-    "minMonthly": 5000,
-    "priority": "critical"
-  },
-  {
-    "id": "s103",
-    "template": "これだけ払う価値、本当にある?",
-    "minMonthly": 3000,
-    "priority": "critical"
-  },
-  {
-    "id": "s110",
-    "template": "使ってないのに払ってるの、バカじゃない?",
-    "priority": "critical"
-  },
-  {
-    "id": "s111",
-    "template": "サブスク会社の養分になってるよ",
-    "priority": "critical"
-  },
-  {
-    "id": "s112",
-    "template": "自動更新の鬼に憑りつかれてるね",
-    "priority": "high"
-  },
-  {
-    "id": "s113",
-    "template": "このサービス、あなたのこと好きなの?どうなの?",
-    "priority": "medium"
-  },
-  {
-    "id": "s114",
-    "template": "財布の紐、緩すぎじゃない?",
-    "priority": "high"
-  },
-  {
-    "id": "s120",
-    "template": "毎月お金が消える音、聞こえる?",
-    "priority": "medium"
-  },
-  {
-    "id": "s121",
-    "template": "クレカ明細、ちゃんと見てる?",
-    "priority": "low"
-  },
-  {
-    "id": "s122",
-    "template": "「あって当たり前」になってない?",
-    "priority": "medium"
-  },
-  {
-    "id": "s123",
-    "template": "解約したら何か変わる?変わらない?",
-    "priority": "low"
-  }
+    {
+        "id": "s001",
+        "template": "月{amount}円、毎月自動で消えてくよ",
+        "priority": "medium"
+    },
+    {
+        "id": "s002",
+        "template": "毎日約{dailyAmount}円。今日使った?",
+        "priority": "medium"
+    },
+    {
+        "id": "s003",
+        "template": "年間{yearlyAmount}円のお布施、ありがとう",
+        "priority": "medium"
+    },
+    {
+        "id": "s004",
+        "template": "{amount}円、毎月無造作に消えてくね",
+        "priority": "low"
+    },
+    {
+        "id": "s005",
+        "template": "この{amount}円、他のことに使えたのに",
+        "priority": "medium"
+    },
+    {
+        "id": "s010",
+        "template": "「解約しよう」って何ヶ月前から思ってる?",
+        "priority": "medium"
+    },
+    {
+        "id": "s011",
+        "template": "毎月自動更新。気づいたら1年経ってるよ",
+        "priority": "low"
+    },
+    {
+        "id": "s012",
+        "template": "「試しに」登録して、まだ「試し中」?",
+        "priority": "medium"
+    },
+    {
+        "id": "s013",
+        "template": "解約ボタン、どこにあるか覚えてる?",
+        "priority": "medium"
+    },
+    {
+        "id": "s020",
+        "template": "最後にログインしたの、いつ?",
+        "priority": "high"
+    },
+    {
+        "id": "s021",
+        "template": "今日も使わなかったね。明日は?",
+        "priority": "medium"
+    },
+    {
+        "id": "s022",
+        "template": "払ってるだけで満足してない?",
+        "priority": "high"
+    },
+    {
+        "id": "s023",
+        "template": "元とれてる?正直に答えてみ",
+        "priority": "high"
+    },
+    {
+        "id": "s024",
+        "template": "お金払ってるのに使わないの、もったいなくない?",
+        "priority": "medium"
+    },
+    {
+        "id": "s030",
+        "template": "また動画サブスク...何個入ってるの?",
+        "categories": [
+            "動画"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s031",
+        "template": "見てる時間ある?",
+        "categories": [
+            "動画"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s032",
+        "template": "ウォッチリストに追加して放置してない?",
+        "categories": [
+            "動画"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s033",
+        "template": "今月何本見た?正直に",
+        "categories": [
+            "動画"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s040",
+        "template": "音楽に月{amount}円...本当に聴いてる?",
+        "categories": [
+            "音楽"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s041",
+        "template": "YouTubeでも聴けるのにね",
+        "categories": [
+            "音楽"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s042",
+        "template": "同じ曲ばっかりリピートしてない?",
+        "categories": [
+            "音楽"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s050",
+        "template": "仕事用ツール...元取れてる?",
+        "categories": [
+            "仕事"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s051",
+        "template": "無料版で十分だったりしない?",
+        "categories": [
+            "仕事"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s052",
+        "template": "「仕事に必要」って言い訳にしてない?",
+        "categories": [
+            "仕事"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s060",
+        "template": "学習系サブスク...で、勉強してる?",
+        "categories": [
+            "学習"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s061",
+        "template": "「いつか学ぶ」の「いつか」、いつ?",
+        "categories": [
+            "学習"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s062",
+        "template": "積ん読ならぬ積みコースになってない?",
+        "categories": [
+            "学習"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s070",
+        "template": "ゲームに{amount}円/月...積みゲー増えてない?",
+        "categories": [
+            "ゲーム"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s071",
+        "template": "今月何時間プレイした?",
+        "categories": [
+            "ゲーム"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s080",
+        "template": "クラウドストレージ、何GB使ってる?",
+        "categories": [
+            "クラウド/IT"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s081",
+        "template": "無料プランで足りなかった?本当に?",
+        "categories": [
+            "クラウド/IT"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s090",
+        "template": "「生活に必要」...本当に?",
+        "categories": [
+            "生活"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s091",
+        "template": "なくても生きていけるんじゃない?",
+        "categories": [
+            "生活"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s100",
+        "template": "{name}に月{amount}円...これ本当に必要?",
+        "minMonthly": 2000,
+        "priority": "high"
+    },
+    {
+        "id": "s101",
+        "template": "年間{yearlyAmount}円のサービス、使いこなせてる?",
+        "minMonthly": 3000,
+        "priority": "high"
+    },
+    {
+        "id": "s102",
+        "template": "{amount}円/月って、結構な金額だよ",
+        "minMonthly": 5000,
+        "priority": "critical"
+    },
+    {
+        "id": "s103",
+        "template": "これだけ払う価値、本当にある?",
+        "minMonthly": 3000,
+        "priority": "critical"
+    },
+    {
+        "id": "s110",
+        "template": "使ってないのに払ってるの、バカじゃない?",
+        "priority": "critical"
+    },
+    {
+        "id": "s111",
+        "template": "サブスク会社の養分になってるよ",
+        "priority": "critical"
+    },
+    {
+        "id": "s112",
+        "template": "自動更新の鬼に憑りつかれてるね",
+        "priority": "high"
+    },
+    {
+        "id": "s113",
+        "template": "このサービス、あなたのこと好きなの?どうなの?",
+        "priority": "medium"
+    },
+    {
+        "id": "s114",
+        "template": "財布の紐、緩すぎじゃない?",
+        "priority": "high"
+    },
+    {
+        "id": "s120",
+        "template": "毎月お金が消える音、聞こえる?",
+        "priority": "medium"
+    },
+    {
+        "id": "s121",
+        "template": "クレカ明細、ちゃんと見てる?",
+        "priority": "low"
+    },
+    {
+        "id": "s122",
+        "template": "「あって当たり前」になってない?",
+        "priority": "medium"
+    },
+    {
+        "id": "s123",
+        "template": "解約したら何か変わる?変わらない?",
+        "priority": "low"
+    },
+    {
+        "id": "s200",
+        "template": "「良い人いたら」って、アプリ開いてないじゃん",
+        "categories": [
+            "恋愛/マッチング"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s201",
+        "template": "月{amount}円の恋人募集中、成果は0人",
+        "categories": [
+            "恋愛/マッチング"
+        ],
+        "priority": "critical"
+    },
+    {
+        "id": "s202",
+        "template": "課金してモテるなら、もっとモテてるはず",
+        "categories": [
+            "恋愛/マッチング"
+        ],
+        "priority": "critical"
+    },
+    {
+        "id": "s203",
+        "template": "自動更新された瞬間、また一ヶ月独身確定",
+        "categories": [
+            "恋愛/マッチング"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s204",
+        "template": "ジム代{amount}円、筋肉じゃなくて脂肪に変わってる",
+        "categories": [
+            "フィットネス/健康"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s205",
+        "template": "「行く気はある」。その気持ちに{amount}円払ってる",
+        "categories": [
+            "フィットネス/健康"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s206",
+        "template": "オンラインヨガ、マットの上で寝てるだけ？",
+        "categories": [
+            "フィットネス/健康"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s207",
+        "template": "健康のための出費で、家計が不健康",
+        "categories": [
+            "フィットネス/健康"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s208",
+        "template": "読んでない日経、枕元で積まれてるのと同じ",
+        "categories": [
+            "学習",
+            "ニュース/情報"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s209",
+        "template": "ヘッドラインしか見ないなら無料版でよくない？",
+        "categories": [
+            "学習",
+            "ニュース/情報"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s210",
+        "template": "「意識高い系」の維持費、月{amount}円",
+        "categories": [
+            "学習",
+            "ニュース/情報"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s211",
+        "template": "ロム専に月{amount}円。高い入場料だね",
+        "categories": [
+            "推し活/ファンクラブ"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s212",
+        "template": "教祖様へのお布施。ご利益あった？",
+        "categories": [
+            "推し活/ファンクラブ"
+        ],
+        "priority": "critical"
+    },
+    {
+        "id": "s213",
+        "template": "年{yearlyAmount}円、推しはあなたの名前を知らない",
+        "categories": [
+            "推し活/ファンクラブ"
+        ],
+        "priority": "critical"
+    },
+    {
+        "id": "s214",
+        "template": "iCloudがいっぱい？写真整理すればタダだよ",
+        "categories": [
+            "クラウド/IT"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s215",
+        "template": "月{amount}円のゴミ箱（ストレージ）にお金払ってる",
+        "categories": [
+            "クラウド/IT"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s216",
+        "template": "Adobe税、重いよね。プロじゃなきゃCanvaで良くない？",
+        "categories": [
+            "仕事"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s217",
+        "template": "サーバー代、アクセスないブログの墓場維持費",
+        "categories": [
+            "クラウド/IT"
+        ],
+        "priority": "high"
+    },
+    {
+        "id": "s218",
+        "template": "ウォーターサーバー、水よりお湯（維持費）が高い",
+        "categories": [
+            "飲食/グルメ",
+            "生活"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s219",
+        "template": "Uberのパス、元取るために無理して注文してない？",
+        "categories": [
+            "飲食/グルメ"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s220",
+        "template": "送料無料にするために、無駄なもの買ってない？",
+        "categories": [
+            "ショッピング"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s221",
+        "template": "お急ぎ便、そんなに急ぐ荷物あった？",
+        "categories": [
+            "ショッピング"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s222",
+        "template": "広告消すのに{amount}円。1秒いくらの価値？",
+        "categories": [
+            "その他",
+            "動画"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s223",
+        "template": "バックグラウンド再生、ポケットの中で鳴ってるだけ",
+        "categories": [
+            "音楽",
+            "動画"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s224",
+        "template": "{amount}円あったら、美味しいランチ食べられたね",
+        "minMonthly": 1000,
+        "priority": "medium"
+    },
+    {
+        "id": "s225",
+        "template": "{amount}円、床に落ちてても拾わない？拾うでしょ",
+        "minMonthly": 500,
+        "priority": "low"
+    },
+    {
+        "id": "s226",
+        "template": "年{yearlyAmount}円、これもう「家賃」の一種だよ",
+        "minMonthly": 10000,
+        "priority": "critical"
+    },
+    {
+        "id": "s227",
+        "template": "少額だからってナメてると、年{yearlyAmount}円の痛手",
+        "minMonthly": 300,
+        "priority": "medium"
+    },
+    {
+        "id": "s228",
+        "template": "契約した時の情熱、今はもうないね",
+        "priority": "medium"
+    },
+    {
+        "id": "s229",
+        "template": "解約画面の「本当にいいですか？」にビビるな",
+        "priority": "high"
+    },
+    {
+        "id": "s230",
+        "template": "パスワード忘れたサービスに{amount}円払う滑稽さ",
+        "priority": "critical"
+    },
+    {
+        "id": "s231",
+        "template": "明細の「UNCORRECT」な請求、正体これだよ",
+        "priority": "high"
+    },
+    {
+        "id": "s232",
+        "template": "「とりあえず登録」の「とりあえず」が永遠に続いてる",
+        "priority": "medium"
+    },
+    {
+        "id": "s233",
+        "template": "無料期間終わる日のカレンダー通知、無視したでしょ",
+        "priority": "high"
+    },
+    {
+        "id": "s234",
+        "template": "スマホのアイコン、整理がてら長押して「削除」いこう",
+        "priority": "medium"
+    },
+    {
+        "id": "s235",
+        "template": "指紋認証で一瞬で課金。解約は指紋じゃできない不思議",
+        "priority": "medium"
+    },
+    {
+        "id": "s236",
+        "template": "その{amount}円、ドブに捨てる方がまだマシ（運動になる）",
+        "priority": "critical"
+    },
+    {
+        "id": "s237",
+        "template": "「便利そう」なアプリ、開いてないなら「不便」な出費",
+        "priority": "medium"
+    },
+    {
+        "id": "s238",
+        "template": "友達紹介キャンペーン、友達なくすよ",
+        "priority": "low"
+    },
+    {
+        "id": "s239",
+        "template": "「維持費」って言葉、車と家だけで十分",
+        "priority": "medium"
+    },
+    {
+        "id": "s240",
+        "template": "あなたの個人情報と、{amount}円、両方差し出してる",
+        "priority": "critical"
+    },
+    {
+        "id": "s241",
+        "template": "解約アンケート「使わなくなった」正直に答えなよ",
+        "priority": "low"
+    },
+    {
+        "id": "s242",
+        "template": "そのサービス、来月会社が潰れても困らないでしょ？",
+        "priority": "high"
+    },
+    {
+        "id": "s243",
+        "template": "{amount}円、ちり紙交換より安いけど、何も交換してない",
+        "priority": "low"
+    },
+    {
+        "id": "s244",
+        "template": "寝てる間も課金。夢の中でも課金。起きて解約。",
+        "priority": "high"
+    },
+    {
+        "id": "s245",
+        "template": "来月の明細見てまた「あちゃー」って言うの？",
+        "priority": "medium"
+    },
+    {
+        "id": "s246",
+        "template": "「プレミアム」なのは名前だけ。中身は空っぽ",
+        "priority": "medium"
+    },
+    {
+        "id": "s247",
+        "template": "解約電話が繋がらない？それが狙いだよ。諦めるな",
+        "categories": [
+            "その他"
+        ],
+        "priority": "critical"
+    },
+    {
+        "id": "s248",
+        "template": "英語学習アプリ、Helloしか喋ってないのに{amount}円",
+        "categories": [
+            "学習"
+        ],
+        "priority": "medium"
+    },
+    {
+        "id": "s249",
+        "template": "料理レシピ動画、見てるだけでお腹いっぱい？",
+        "categories": [
+            "飲食/グルメ",
+            "生活"
+        ],
+        "priority": "low"
+    },
+    {
+        "id": "s250",
+        "template": "占いサイト、金運下がるって出てない？",
+        "categories": [
+            "その他",
+            "生活"
+        ],
+        "priority": "medium"
+    }
 ]
